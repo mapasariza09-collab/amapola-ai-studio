@@ -1,0 +1,6 @@
+{
+  "name": "Amapola Gourmet",
+  "description": "Plataforma de gestión gastronómica, KDS y pedidos gourmet con arquitectura Bento Grid.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
