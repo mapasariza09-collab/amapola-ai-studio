@@ -1,6 +1,6 @@
 {
   "name": "Amapola Gourmet",
-  "description": "Plataforma de gestión gastronómica, KDS y pedidos gourmet con arquitectura Bento Grid.",
+  "description": "Suite profesional SPA en modo oscuro (Bento Grid + Glassmorphism) con PostgreSQL en Cloud SQL y Supabase, navegación multi-vista y telemetría KDS.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

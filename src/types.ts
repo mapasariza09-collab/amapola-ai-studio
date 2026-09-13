@@ -1,3 +1,11 @@
+export type AppView =
+  | 'auth'
+  | 'dashboard'
+  | 'items-list'
+  | 'item-detail'
+  | 'item-create'
+  | 'settings';
+
 export type ScreenId =
   | 'SCR-01'
   | 'SCR-02'
@@ -7,8 +15,46 @@ export type ScreenId =
   | 'SCR-06'
   | 'SCR-07';
 
-export type SimulationState = 'normal' | 'empty' | 'loading';
+export type SimulationState = 'normal' | 'empty' | 'loading' | 'error';
 
+export interface UserSession {
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  avatar: string;
+  provider: 'supabase' | 'google-firebase' | 'local';
+}
+
+export type ItemStatus = 'active' | 'in-progress' | 'completed' | 'archived';
+export type ItemPriority = 'low' | 'medium' | 'high' | 'urgent';
+
+export interface ItemRecord {
+  id: string;
+  owner_id: string;
+  title: string;
+  sku: string;
+  category: string;
+  status: ItemStatus;
+  priority: ItemPriority;
+  price: number;
+  cost: number;
+  stock: number;
+  description: string;
+  tags: string[];
+  rating: number;
+  image?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ToastNotification {
+  id: string;
+  type: 'success' | 'error' | 'info' | 'warning';
+  message: string;
+}
+
+// Legacy types preserved for backward compatibility
 export interface Product {
   id: string;
   name: string;
@@ -67,8 +113,8 @@ export interface ExportedReport {
   pagesOrSheets: string;
   date: string;
   generatedBy: string;
-  generatedByRole: 'Admin' | 'Gerencia' | 'Chef';
-  status: 'Listo' | 'Generando';
+  generatedByRole: string;
+  status: 'Listo' | 'Generando' | 'Error';
 }
 
 export interface RoleMatrixItem {
@@ -87,11 +133,11 @@ export interface RoleMatrixItem {
 export interface PaymentGateway {
   id: string;
   name: string;
-  statusLabel: string;
-  statusClass: string;
   description: string;
   icon: string;
   enabled: boolean;
+  statusLabel: string;
+  statusClass: string;
   requiresKey?: boolean;
 }
 
@@ -101,5 +147,5 @@ export interface RestaurantProfile {
   email: string;
   whatsapp: string;
   logo: string;
-  isWhatsappVerified: boolean;
+  isWhatsappVerified?: boolean;
 }
